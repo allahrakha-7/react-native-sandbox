@@ -1,29 +1,30 @@
-import { Text, View } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { StyleSheet } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet, ScrollView } from 'react-native';
+import FlatCards from './components/FlatCards';
+import ElevatedCards from './components/ElevatedCards';
+import PlacesAndBlogCards from './components/PlacesAndBlogCards';
+import ContactCards from './components/ContactCards';
 
 function App() {
   return (
-  <SafeAreaProvider style={styles.safeArea}>
-    <View style={styles.container}>
-      <Text>Hello World</Text>
-    </View>
-  </SafeAreaProvider>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.mainContainer} edges={['top']}>
+        <ScrollView>
+          <FlatCards />
+          <ElevatedCards />
+          <PlacesAndBlogCards />
+          <ContactCards />
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
-export default App
-
+export default App;
 
 const styles = StyleSheet.create({
-  safeArea: {
+  mainContainer: {
     flex: 1,
+    backgroundColor: '#333333',
   },
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  }
-})
-
-
+});
