@@ -4,8 +4,13 @@ import FlatCards from './components/FlatCards';
 import ElevatedCards from './components/ElevatedCards';
 import PlacesAndBlogCards from './components/PlacesAndBlogCards';
 import ContactCards from './components/ContactCards';
+import RNBootSplash from 'react-native-bootsplash';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    RNBootSplash.hide({ fade: true });
+  }, []);
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.mainContainer} edges={['top']}>
